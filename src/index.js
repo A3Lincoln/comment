@@ -1,10 +1,10 @@
-let items = document.querySelectorAll('.lyric_item');
+let items = document.querySelectorAll('.lyric_item'); //в items хранятся все элементы класса lyric item
 items.forEach(item => {
     item.addEventListener('click', function () {
         if (item.classList.contains('shown')){
             if (item.classList.contains('clicked')){
                 item.classList.remove('clicked');
-                $('.' + item.id).slideUp(500);
+                $('.' + item.id).slideUp(500); //выбирает класс itemid
                 return;
             } else {
                 $('.' + item.id).slideDown(500);
@@ -17,7 +17,7 @@ items.forEach(item => {
         req.onload = function () {
            // console.log(req.status);
             if (req.status >= 200 && req.status < 400){
-                let lyrics = JSON.parse(req.responseText);
+                let lyrics = JSON.parse(req.responseText);// преобразование json в объект
                 let el = '';
                 lyrics[0].parts.forEach(part => {
                     el += `<p>`;
